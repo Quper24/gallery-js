@@ -1,14 +1,14 @@
 export const createCardPhoto = (data) => {
   const card = document.createElement('li');
   card.className = 'card';
-  
+
   const cardItem = document.createElement('a');
   cardItem.id = data.id;
-  cardItem.className = 'grid-item'
-  cardItem.href = `page.html?photo=${data.id}`
+  cardItem.className = 'grid-item';
+  cardItem.href = `page.html?photo=${data.id}`;
 
   const photo = new Image();
-  photo.width = "200";
+  photo.width = '200';
   photo.src = data.urls.small;
   photo.alt = data.alt_description;
 
@@ -35,9 +35,9 @@ export const createCardPhoto = (data) => {
   downloadLink.href = data.links.download;
   downloadLink.download = true;
   downloadLink.target = '_blank';
-  
+
   cardItem.append(photo, author, likeBtn, downloadLink);
   card.append(cardItem);
 
-  return card
+  return card;
 };
