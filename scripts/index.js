@@ -7,7 +7,7 @@ const init = async ({selectorGalleryWrapper, selectorPhotoWrapper}) => {
   const photoWrapper = document.querySelector(selectorPhotoWrapper);
   
   if (galleryWrapper) {
-    const photos = await getData();
+    const photos = await getData('data.json');
     renderGallery(galleryWrapper, photos);
   }
   
@@ -15,7 +15,7 @@ const init = async ({selectorGalleryWrapper, selectorPhotoWrapper}) => {
     const url = new URL(location.href);
     console.log(url.searchParams.get('photo'));
 
-    const photo = await getData();
+    const photo = await getData('photo.json');
     renderPhoto(photoWrapper, photo);
   }
 
