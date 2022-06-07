@@ -1,11 +1,15 @@
-export const createCardPhoto = (data) => {
-  const card = document.createElement('li');
-  card.className = 'card';
+import { createElem } from './createElem.js';
 
-  const cardItem = document.createElement('a');
-  cardItem.id = data.id;
-  cardItem.className = 'grid-item';
-  cardItem.href = `page.html?photo=${data.id}`;
+export const createCardPhoto = (data) => {
+  const card = createElem('li', {
+    className: 'card'
+  });
+
+  const cardItem = createElem('a', {
+    id: data.id,
+    className: 'grid-item',
+    href: `page.html?photo=${data.id}`,
+  });
 
   const photo = new Image();
   photo.width = '200';
