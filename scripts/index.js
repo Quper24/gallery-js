@@ -1,11 +1,19 @@
 import { getData } from './getData.js';
 import { renderGallery } from './renderGallery.js';
 import { renderPhoto } from './renderPhoto.js';
+import { authtorization } from './authorization.js';
 
-const init = async ({selectorGalleryWrapper, selectorPhotoWrapper}) => {
+const init = async ({
+  selectorGalleryWrapper,
+  selectorPhotoWrapper,
+  selectorAuthButton
+}) => {
   const galleryWrapper = document.querySelector(selectorGalleryWrapper);
   const photoWrapper = document.querySelector(selectorPhotoWrapper);
-  
+  const authButton = document.querySelector(selectorAuthButton);
+
+  authtorization(authButton)
+
   if (galleryWrapper) {
     const photos = await getData({ count: 30 });
     renderGallery(galleryWrapper, photos);
@@ -28,4 +36,5 @@ const init = async ({selectorGalleryWrapper, selectorPhotoWrapper}) => {
 init({ 
   selectorGalleryWrapper: '.gallery__wrapper', 
   selectorPhotoWrapper: '.photo__wrapper',
+  selectorAuthButton: '.header__login-button',
 });
